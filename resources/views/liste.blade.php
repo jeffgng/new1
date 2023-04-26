@@ -24,16 +24,23 @@
             <td>{{$learning->prenom}}</td>
             <td>{{$learning->email}}</td>
             <td>{{$learning->pays}}</td>
-            <td>{{$learning->photo}}</td>
+            <td><img src="{{ asset($learning->photo)}}" alt="" width="60" height="60"></td>
             <td>{{$learning->pdf}}</td>
             <td>{{$learning->word}}</td>
+            <td>
+                <a href="edit/{{$learning->id}}">edit</a>
+
+                <a href="delete/{{$learning->id}}">supprimer</a>
+
+
+            </td>
 
         </tr>
 
         @endforeach
     </table>
-    <a href="edit/{{$learning->id}}">edit</a>
-    <a href="delete/{{$learning->id}}">supprimer</a>
+
+
 </div>
 
 <div>

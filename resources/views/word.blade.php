@@ -8,13 +8,18 @@
 
 <div>
 
-    <h1>Document WORD</h1>
+
     <form action="{{ route('word')}}" method="POST" enctype='multipart/form-data'>
         @csrf
+       <label for="name">Name</label>
         <input type="text" name="name">
+        <label for="prenom">Prenom</label>
         <input type="text" name="prenom">
+        <label for="email">Email</label>
         <input type="text" name="email">
+        <label for="pays">Pays</label>
         <input type="text" name="pays">
+        <label for="word">Word</label>
         <input type="file" name="word" accept=".docx, .doc, .xml">
         <button type="submit">save</button>
     </form>

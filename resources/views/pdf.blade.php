@@ -8,13 +8,18 @@
 
 <div>
 
-    <h1>Document PDF</h1>
+
     <form action="{{ route('pdf')}}" method="POST" enctype='multipart/form-data'>
         @csrf
+        <label for="name">Name</label>
         <input type="text" name="name">
+        <label for="prenom">Prenom</label>
         <input type="text" name="prenom">
+        <label for="email">Email</label>
         <input type="text" name="email">
+        <label for="pays">Pays</label>
         <input type="text" name="pays">
+        <label for="pdf">PDF</label>
        <input type="file" name="pdf" accept=".pdf">
         <button type="submit">upload</button>
     </form>

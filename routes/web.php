@@ -44,11 +44,14 @@ Route::GET('/gallerie', 'App\Http\Controllers\LearningController@sauvegard')->na
 Route::POST('/gallerie', 'App\Http\Controllers\LearningController@upload')->name('gallerie');
 
 Route::get('/word', 'App\Http\Controllers\LearningController@word')->name('word');
+Route::post('/word', 'App\Http\Controllers\LearningController@worddoc')->name('word');
 
+//Route::get('/liste', 'App\Http\Controllers\LearningController@show')->name('liste');
 Route::get('/liste', 'App\Http\Controllers\LearningController@liste')->name('liste');
+
 Route::get('edit/{id}', 'App\Http\Controllers\LearningController@edit');
 Route::post('update/{id}', 'App\Http\Controllers\LearningController@update');
-Route::get('remove/{id}', 'App\Http\Controllers\LearningController@remove');
+Route::get('delete/{id}', 'App\Http\Controllers\LearningController@delete');
 
 
 

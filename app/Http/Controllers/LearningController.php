@@ -42,6 +42,7 @@ class LearningController extends Controller
     public function store(Request $request)
     {
         //
+        return view('liste');
     }
 
     /**
@@ -89,7 +90,8 @@ class LearningController extends Controller
           $learning->pdf= $request->input('pdf');
           $learning->word= $request->input('word');
           $learning->save();
-          return "donnée modifier avec succès";
+          //return "donnée modifier avec succès";
+        return back();
 
     }
 
@@ -99,26 +101,41 @@ class LearningController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
         //
+
+         $learning= learning::find($id);
+        $learning->delete();
+        return back();
     }
+
 
     public function remove($id){
-        $learning= learning::find($id);
-        $learning->delete();
-        return "donnée supprimée";
-    }
 
+     }
+
+    /********************************stockage de données pdf**************************************** */
     public function document(Request $request)
     {
         //dd($request);
-
-          $path = $request->file('file')->store('docs');
-
+         $requestDonnee = $request->all();
+        // dd($request->file('file'));
+        $fileName= time().$request->file('pdf')->getClientOriginalName();
+        $path = $request->file('pdf')->storeAs('public',$fileName);
+         $requestDonnee["pdf"]='/storage/'.$path;
+         learning :: Create($requestDonnee);
+          //$path = $request->file('file')->store('docs');
            return $path;
     }
 
+    public function pdf(){
+        return view('pdf');
+    }
+
+
+
+    /********************************stockage de données gallerie**************************************** */
     public function upload(Request $request){
 
         $requestData = $request->all();
@@ -128,23 +145,37 @@ class LearningController extends Controller
         $path = $request->file('photo')->storeAs('public',$fileName);
          $requestData["photo"]='/storage/'.$path;
          learning :: Create($requestData);
-
-        return redirect()->to ('/')->with('flash_message', 'photo ajoutée');
+        return $path;
 
 
     }
-
     public function sauvegard(){
         return view('gallerie');
     }
 
-    public function pdf(){
-        return view('pdf');
-    }
+
+
+    /********************************stockage de données word**************************************** */
 
      public function word(){
         return view('word');
     }
+
+    public function worddoc(Request $request)
+    {
+        //dd($request);
+         $requestWord = $request->all();
+        // dd($request->file('file'));
+        $fileName= time().$request->file('word')->getClientOriginalName();
+        $path = $request->file('word')->storeAs('public',$fileName);
+         $requestWord["word"]='/storage/'.$path;
+         learning :: Create($requestWord);
+          //$path = $request->file('file')->store('docs');
+           return $path;
+    }
+
+
+    /***************************************affichage des données*******************/
      public function liste(){
         $learning = learning::all();
         return view('liste', compact('learning'));
