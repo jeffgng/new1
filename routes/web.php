@@ -80,3 +80,4 @@ Auth::routes();
 /*Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/user', [App\Http\Controllers\HomeController::class, 'index'])->name('user');
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');*/
+Route::get('/deconnexion', 'App\Http\Controllers\LearningController@deconnexion');

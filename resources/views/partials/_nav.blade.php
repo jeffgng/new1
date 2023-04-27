@@ -3,17 +3,17 @@
         <a href="#"> <img src="{{asset('default/logo.png')}}" alt="" width="70px" height="60px"> projet</a>
 
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-
+            <li><a class="grey-text text-lighten-3" href="{{ url('/deconnexion')}}">deconnexion</a></li>
         @guest
         @if (Route::has('login'))
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                <a class="grey-text text-lighten-3" href="{{ route('login') }}">{{ __('Login') }}</a>
             </li>
         @endif
 
         @if (Route::has('register'))
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                <a class="grey-text text-lighten-3" href="{{ route('register') }}">{{ __('Register') }}</a>
             </li>
         @endif
     @else
@@ -34,6 +34,7 @@
                 </form>
             </div>
         </li>
+
     @endguest
 
             <li><a class="grey-text text-lighten-3" href="{{ url('/')}}">home</a></li>

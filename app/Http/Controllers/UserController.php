@@ -11,4 +11,9 @@ class UserController extends Controller
     {
         return view('user.index');
     }
+
+    public function getRememberTokenName()
+{
+    return '';
+}
 }

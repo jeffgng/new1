@@ -186,6 +186,12 @@ class LearningController extends Controller
     }
 
 
+    public function deconnexion()
+{
+    auth()->logout();
+
+    return redirect('/');
+}
 }
 
 
