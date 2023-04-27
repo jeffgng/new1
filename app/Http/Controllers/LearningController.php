@@ -180,6 +180,12 @@ class LearningController extends Controller
         $learning = learning::all();
         return view('liste', compact('learning'));
     }
+
+    public function home(){
+        return view('home');
+    }
+
+
 }
 
 

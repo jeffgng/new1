@@ -24,7 +24,7 @@
             <td>{{$learning->prenom}}</td>
             <td>{{$learning->email}}</td>
             <td>{{$learning->pays}}</td>
-            <td><img src="{{ asset($learning->photo)}}" alt="" width="60" height="60"></td>
+            <td><img src="{{ asset($learning->photo)}}" alt="{{ asset($learning->photo)}}" width="60" height="60"></td>
             <td>{{$learning->pdf}}</td>
             <td>{{$learning->word}}</td>
             <td>
